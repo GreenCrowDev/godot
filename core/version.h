@@ -44,13 +44,15 @@
 // and then <major>.<minor>.<patch> for subsequent bugfix releases where <patch> != 0
 // That's arbitrary, but we find it pretty and it's the current policy.
 
+// Custom engine versions by Green Crow Games are provided by <custom_patch> and <custom_name>.
+
 // Defines the main "branch" version. Patch versions in this branch should be
 // forward-compatible.
 // Example: "3.1"
 #define GODOT_VERSION_BRANCH _MKSTR(GODOT_VERSION_MAJOR) "." _MKSTR(GODOT_VERSION_MINOR)
-#if GODOT_VERSION_PATCH
-// Example: "3.1.4"
-#define GODOT_VERSION_NUMBER GODOT_VERSION_BRANCH "." _MKSTR(GODOT_VERSION_PATCH)
+#if GODOT_VERSION_PATCH || GODOT_VERSION_CUSTOM_PATCH
+// Example: "3.1.4.1"
+#define GODOT_VERSION_NUMBER GODOT_VERSION_BRANCH "." _MKSTR(GODOT_VERSION_PATCH) "." _MKSTR(GODOT_VERSION_CUSTOM_PATCH)
 #else // patch is 0, we don't include it in the "pretty" version number.
 // Example: "3.1" instead of "3.1.0"
 #define GODOT_VERSION_NUMBER GODOT_VERSION_BRANCH
@@ -74,7 +76,7 @@
 // Similar to GODOT_VERSION_FULL_CONFIG, but also includes the (potentially custom) GODOT_VERSION_BUILD
 // description (e.g. official, custom_build, etc.).
 // Example: "3.1.4.stable.mono.double.official"
-#define GODOT_VERSION_FULL_BUILD GODOT_VERSION_FULL_CONFIG "." GODOT_VERSION_BUILD
+#define GODOT_VERSION_FULL_BUILD GODOT_VERSION_FULL_CONFIG "." GODOT_VERSION_BUILD " " GODOT_VERSION_CUSTOM_NAME
 
 // Same as above, but prepended with Godot's name and a cosmetic "v" for "version".
 // Example: "Godot v3.1.4.stable.official.mono.double"

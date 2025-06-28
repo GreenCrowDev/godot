@@ -143,6 +143,8 @@ def get_version_info(module_version_string="", silent=False):
         "major": int(version.major),
         "minor": int(version.minor),
         "patch": int(version.patch),
+        "custom_patch": int(version.custom_patch),
+        "custom_name": str(version.custom_name),
         "status": str(version.status),
         "build": str(build_name),
         "module_config": str(version.module_config) + module_version_string,
