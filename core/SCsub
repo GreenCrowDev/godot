@@ -187,6 +187,8 @@ def version_info_builder(target, source, env):
 #define VERSION_MAJOR {major}
 #define VERSION_MINOR {minor}
 #define VERSION_PATCH {patch}
+#define VERSION_CUSTOM_PATCH {custom_patch}
+#define VERSION_CUSTOM_NAME "{custom_name}"
 #define VERSION_STATUS "{status}"
 #define VERSION_BUILD "{build}"
 #define VERSION_MODULE_CONFIG "{module_config}"
